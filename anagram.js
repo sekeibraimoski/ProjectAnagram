@@ -34,10 +34,10 @@ function findAnagrams2(word) {
 }
 
 function startApp() {
-  prompts.question("Enter word: ", function (word) {
-    fs.readFile("dictionary.txt", (err, data) => {
-      if (err) throw err;
-      dictionary = data.toString().split("\n");
+  fs.readFile("dictionary.txt", (err, data) => {
+    if (err) throw err;
+    dictionary = data.toString().split("\n");
+    prompts.question("Enter word: ", function (word) {
       findAnagrams1(word);
     });
   });
